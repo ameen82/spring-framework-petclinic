@@ -7,10 +7,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- task: MavenAuthenticate@0
-  displayName: 'Maven Authenticate'
-  inputs:
-    MavenServiceConnections: central,MavenOrg
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
