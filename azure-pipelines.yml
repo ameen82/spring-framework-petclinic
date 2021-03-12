@@ -7,6 +7,10 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
+- task: MavenAuthenticate@0
+  displayName: 'Maven Authenticate'
+  inputs:
+    MavenServiceConnections: central,MavenOrg
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -14,7 +18,6 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    MavenServiceConnections: central,MavenOrg
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     goals: 'package'
